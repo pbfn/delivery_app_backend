@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity(name = "tbUsers")
 @NoArgsConstructor
 @AllArgsConstructor
@@ -29,5 +32,8 @@ public class Users {
     @Enumerated(EnumType.STRING)
     TypeUser type;
 
+
+    @OneToMany(mappedBy = "shopkeeper", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Store> stores = new ArrayList<>();
 
 }
