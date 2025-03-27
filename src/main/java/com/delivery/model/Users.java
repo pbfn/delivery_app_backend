@@ -8,6 +8,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 @Entity(name = "tbUsers")
@@ -53,10 +54,10 @@ public class Users implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        if(this.type == TypeUser.ADMIN) return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"));
-        if(this.type == TypeUser.CLIENT) return List.of(new SimpleGrantedAuthority("ROLE_CLIENT"));
-        if(this.type == TypeUser.SHOPKEEPER) return List.of(new SimpleGrantedAuthority("ROLE_SHOPKEEPER"));
-        return null;
+        if (this.type == TypeUser.ADMIN) return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"));
+        if (this.type == TypeUser.CLIENT) return List.of(new SimpleGrantedAuthority("ROLE_CLIENT"));
+        if (this.type == TypeUser.SHOPKEEPER) return List.of(new SimpleGrantedAuthority("ROLE_SHOPKEEPER"));
+        return Collections.emptyList();
     }
 
     @Override
@@ -67,5 +68,9 @@ public class Users implements UserDetails {
     @Override
     public String getUsername() {
         return email;
+    }
+
+    public TypeUser getType() {
+        return type;
     }
 }

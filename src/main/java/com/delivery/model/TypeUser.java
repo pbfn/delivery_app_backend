@@ -1,5 +1,8 @@
 package com.delivery.model;
 
+import lombok.Getter;
+
+@Getter
 public enum TypeUser {
 
     ADMIN("admin"),
@@ -9,9 +12,5 @@ public enum TypeUser {
 
     TypeUser(String type) {
         this.type = type;
-    }
-
-    public String getType(){
-        return type;
     }
 }
