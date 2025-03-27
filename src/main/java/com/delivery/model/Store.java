@@ -39,4 +39,32 @@ public class Store {
         this.longitude = longitude;
         this.shopkeeper = shopkeeper;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public Users getShopkeeper() {
+        return shopkeeper;
+    }
+
+    public List<Products> getProducts() {
+        return products;
+    }
 }
